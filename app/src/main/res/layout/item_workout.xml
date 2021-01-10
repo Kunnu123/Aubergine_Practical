@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activities"
+            type="com.example.aubergine_practical.model.ActivitiesModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_8"
+        app:cardCornerRadius="@dimen/space_6">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_8">
+
+            <LinearLayout
+                android:id="@+id/llTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivType"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_running"
+                    android:background="@color/colorAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/space_8"
+                android:layout_marginEnd="@dimen/space_8"
+                android:id="@+id/tvActivityName"
+                style="@style/TextViewStyle.RobotoMedium"
+                android:text="@{activities.activityName}"
+                android:textSize="@dimen/font_largest"
+                android:textColor="@color/colorAccent"
+                tools:text="Activity name" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvActivityTime"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/llTop"
+                android:layout_marginTop="@dimen/space_8"
+                android:drawablePadding="@dimen/space_8"
+                android:gravity="start|center_vertical"
+                android:text="@{activities.displayStartTime}"
+                android:textSize="@dimen/font_medium"
+                tools:text="23 Dec, 2020 at 01:00 am" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvActivityTime"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tvCalories"
+                    style="@style/TextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:layout_weight="0.5"
+                    android:drawablePadding="@dimen/space_8"
+                    android:gravity="start|center_vertical"
+                    android:textSize="@dimen/font_medium"
+                    app:drawableStartCompat="@drawable/vd_calories"
+                    tools:text="8 cals" />
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    style="@style/TextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:layout_weight="0.5"
+                    android:drawablePadding="@dimen/space_8"
+                    android:gravity="start|center_vertical"
+                    android:textSize="@dimen/font_medium"
+                    android:text="@{activities.displayDuration}"
+                    app:drawableStartCompat="@drawable/vd_time"
+                    tools:text="8 min" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
